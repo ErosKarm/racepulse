@@ -8,15 +8,12 @@ import { ScrollArea } from "./ui/scroll-area";
 const RaceGraph = () => {
   const raceData = useAppSelector((state) => state.raceDataReducer);
 
-  console.log(raceData.raceData.lapData, "LAPDATA");
-  console.log(raceData.raceData.currentLap, "CURRENT LAP");
-
   if (raceData.raceData.lapData.length === 0) {
     return;
   }
 
   return (
-    <div className="h-full w-full  flex items-center justify-center  align-center shadow-xl bg-stone-900/10">
+    <div className="h-full w-full  flex items-center justify-center  align-center shadow-xl bg-stone-800/10">
       {raceData.raceData.currentLap === 0 && (
         <div className="">Race has not started</div>
       )}

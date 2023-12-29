@@ -19,6 +19,15 @@ interface DriverSelectProps {
 const DriverSelect = ({ setSelectedDriver }: DriverSelectProps) => {
   const raceData = useAppSelector((state) => state.raceDataReducer);
 
+  // Define the useMemo outside of the component function
+  const shortenName = (fullName: string) => {
+    const lastName = fullName.includes("_") ? fullName.split("_")[1] : fullName;
+
+    const shortened = lastName.slice(0, 3).toUpperCase();
+
+    return shortened;
+  }; // Empty dependency array, meaning it only runs once during the initial render
+
   return (
     <Select
       onValueChange={(value) => {
@@ -49,10 +58,16 @@ const DriverSelect = ({ setSelectedDriver }: DriverSelectProps) => {
                     }}
                     className={cn("font-semibold text-xl w-[30px] ")}
                   >
-                    {driver.Driver.permanentNumber}
+                    {driver.Driver.permanentNumber
+                      ? driver.Driver.permanentNumber
+                      : "--"}
                   </div>
 
-                  <div className="w-[40px] ">{driver.Driver.code}</div>
+                  <div className="w-[40px] ">
+                    {driver.Driver.code
+                      ? driver.Driver.code
+                      : shortenName(driver.Driver.driverId)}
+                  </div>
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {driver.Driver.givenName} {driver.Driver.familyName}

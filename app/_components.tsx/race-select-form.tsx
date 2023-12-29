@@ -25,6 +25,7 @@ import { CheckIcon } from "lucide-react";
 
 import {
   setCircuitInfo,
+  setCurrentLap,
   setFinishingResult,
   setLapData,
 } from "@/lib/features/racedata/racedataslice";
@@ -92,6 +93,8 @@ const RaceSelectForm = ({ setOpen }: RaceSelectFormProps) => {
       dispatch(
         setFinishingResult(raceResultData.MRData.RaceTable.Races[0].Results)
       );
+
+      dispatch(setCurrentLap(0));
 
       toast({
         action: (

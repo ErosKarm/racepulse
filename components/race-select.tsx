@@ -14,15 +14,28 @@ import {
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import RaceSelectForm from "@/app/_components.tsx/race-select-form";
+import { cn } from "@/lib/utils";
 
-const RaceSelect = () => {
+interface RaceSelectProps {
+  isTransparent?: boolean;
+}
+
+const RaceSelect = ({ isTransparent }: RaceSelectProps) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="flex flex-col items-center justify-center h-full ">
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger className="bg-[#111111] text-white  px-6 mb-4 rounded-md items-center flex gap-2 text-xs  py-3 font-semibold">
-          SELECT RACE <Plus className="w-4 h-4" />
+        <DialogTrigger
+          className={cn(
+            " text-white  px-6 mb-4 rounded-md items-center flex gap-2 text-xs  py-3 font-semibold",
+            isTransparent
+              ? "bg-transparent text-white p-0"
+              : "bg-[#111111] text-white"
+          )}
+        >
+          SELECT {isTransparent === true ? "ANOTHER" : ""} RACE{" "}
+          <Plus className="w-4 h-4" />
         </DialogTrigger>
         <DialogContent className="bg-[#101018]/95">
           <DialogHeader>
@@ -46,10 +59,6 @@ const RaceSelect = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
-      <span className="text-xs text-muted-foreground">
-        Select a race you want to display.
-      </span>
     </div>
   );
 };

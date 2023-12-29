@@ -65,7 +65,9 @@ const DriverInformation = () => {
             )}
           >
             <div className="flex items-center  ">
-              <span className="text-4xl pl-6">{driverInfo?.position}</span>
+              <span className="text-4xl pl-6">
+                {driverInfo?.isRetired === true ? "R" : driverInfo.position}
+              </span>
             </div>
             <div className="flex  flex-col justify-center col-span-2">
               <span className="text-xl uppercase">{driverInfo?.firstName}</span>
@@ -92,7 +94,13 @@ const DriverInformation = () => {
           <div className="flex flex-col pl-8">
             <span className="text-xs text-muted-foreground">GAP TO LEADER</span>
             <span className="text-3xl font-semibold">
-              -{driverInfo.gapToLeader}s
+              {driverInfo.isRetired === true
+                ? "-"
+                : `+${
+                    driverInfo.gapToLeader === undefined
+                      ? ""
+                      : driverInfo.gapToLeader
+                  }s`}
             </span>
           </div>
         </div>
@@ -126,7 +134,9 @@ const DriverInformation = () => {
           </div>
           <div className="flex flex-col justify-between pl-8 border-r-2">
             <span className="text-xs text-muted-foreground">CURRENT POS.</span>
-            <span className="text-md ">P{driverInfo.position}</span>
+            <span className="text-md ">
+              {driverInfo.isRetired === true ? "RETIRED" : driverInfo.position}
+            </span>
           </div>
           <div className="flex flex-col justify-between pl-8 ">
             <span className="text-xs text-muted-foreground">GAINED POS.</span>

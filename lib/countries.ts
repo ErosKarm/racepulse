@@ -28,7 +28,7 @@ export function countryFromNationality(nationality: string) {
 }
 
 export const countryFromShortName = (name: string) => {
-  console.log(name, "THIS IS THE NAME");
+  console.log(name);
 
   const matchedCountries = countries.filter((country) =>
     country.en_short_name.toLowerCase().includes(name.toLowerCase())
@@ -1708,7 +1708,7 @@ export const countries = [
     num_code: "840",
     alpha_2_code: "US",
     alpha_3_code: "USA",
-    en_short_name: "United States of America",
+    en_short_name: "USA",
     nationality: "American",
   },
   {

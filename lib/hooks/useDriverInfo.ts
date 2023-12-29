@@ -11,6 +11,7 @@ const useDriverInfo = (
       firstName: "",
       lastName: "",
       lapTime: "",
+      isRetired: false,
       gapToLeader: "",
       previousLapTime: "",
       gapToAhead: "",
@@ -24,7 +25,7 @@ const useDriverInfo = (
 
   const selectedDriverData = raceData.raceData.lapData[
     raceData.raceData.currentLap === 0 ? 1 : raceData.raceData.currentLap - 1
-  ].Timings.filter((driver) => driver.driverId === selectedDriver);
+  ]?.Timings.filter((driver) => driver.driverId === selectedDriver);
 
   const finishResultData = raceData.finishResult.filter((driver) => {
     return driver.Driver.driverId === selectedDriver;
@@ -63,10 +64,11 @@ const useDriverInfo = (
 
   const driver = {
     position: selectedDriverData[0]?.position,
-    firstName: finishResultData[0].Driver.givenName,
-    lastName: finishResultData[0].Driver.familyName,
+    firstName: finishResultData[0]?.Driver.givenName,
+    lastName: finishResultData[0]?.Driver.familyName,
     lapTime: selectedDriverData[0]?.time,
-    gapToLeader: selectedDriverData[0].gapToFirst,
+    gapToLeader: selectedDriverData[0]?.gapToFirst,
+    isRetired: selectedDriverData[0]?.isRetired,
     previousLapTime:
       raceData.raceData.currentLap > 1 &&
       raceData.raceData.lapData[
@@ -76,14 +78,14 @@ const useDriverInfo = (
       ].Timings.filter((driver) => driver.driverId === selectedDriver)[0]?.time,
 
     gapToAhead: gapToAhead,
-    driverConstructor: finishResultData[0].Constructor.name,
+    driverConstructor: finishResultData[0]?.Constructor.name,
 
     gainedPositions: gainedPositions,
-    startingPosition: raceData.raceData.lapData[0].Timings.find(
+    startingPosition: raceData.raceData.lapData[0]?.Timings.find(
       (driver) => driver.driverId === selectedDriver
     )?.position,
-    permanentNumber: finishResultData[0].Driver.permanentNumber,
-    color: constructorColors[finishResultData[0].Constructor.constructorId],
+    permanentNumber: finishResultData[0]?.Driver.permanentNumber,
+    color: constructorColors[finishResultData[0]?.Constructor.constructorId],
   };
 
   return driver;

@@ -93,7 +93,7 @@ const ScatterPlot = ({ lapData }: ScatterPlotProps) => {
           });
 
           return constructorColors[
-            finishResultData[0].Constructor.constructorId
+            finishResultData[0]?.Constructor.constructorId
           ];
         });
 
@@ -119,7 +119,9 @@ const ScatterPlot = ({ lapData }: ScatterPlotProps) => {
       svg
         .append("g")
         .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(xScale).tickFormat((d) => `+${d.toFixed(3)}s`));
+        .call(
+          d3.axisBottom(xScale).tickFormat((d) => `+${Number(d).toFixed(3)}s`)
+        );
     },
     [raceData.finishResult, shortenNameMemo]
   );

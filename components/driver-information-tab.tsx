@@ -37,7 +37,7 @@ const DriverInformationTab = ({
           )}
         >
           <div className="flex items-center  ">
-            <span className="text-4xl pl-6">{driverInfo?.position}</span>
+            <span className="text-4xl pl-6"></span>
           </div>
           <div className="flex  flex-col justify-center col-span-2">
             <span className="text-xl uppercase">{driverInfo?.firstName}</span>

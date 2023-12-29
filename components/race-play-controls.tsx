@@ -51,39 +51,11 @@ const RacePlayControls = () => {
     raceData.raceData.lapData,
   ]);
 
-  const [countryCode, setCountryCode] = useState("");
-
-  if (
-    raceData.circuitInfo.location.country !== undefined &&
-    countryCode === ""
-  ) {
-    const code = countryFromShortName(raceData.circuitInfo.location.country!);
-
-    setCountryCode(code.alpha_2_code);
-  }
-
-  console.log(raceData);
-
   return (
     <div className="flex flex-col h-full w-full mt-0">
-      <div className="flex flex-col mt-8  gap-x-4  h-full w-full items-center">
-        {countryCode !== "" && (
-          <Image
-            src={`https://flagcdn.com/120x90/${countryCode.toLowerCase()}.png`}
-            width={120}
-            height={90}
-            alt="Ukraine"
-          />
-        )}
-      </div>
+      <div className="flex flex-col mt-8  gap-x-4  h-full w-full items-center"></div>
 
       <div className="mt-auto">
-        <div className="flex items-center gap-x-2 mb-3 justify-center">
-          <span className="text-xs text-muted-foreground">Current lap:</span>
-          <span className="font-semibold text-2xl">
-            {raceData.raceData.currentLap}
-          </span>
-        </div>
         <Progress
           className="h-2"
           value={
@@ -107,7 +79,6 @@ const RacePlayControls = () => {
             className="flex items-center justify-center  w-10 h-10"
             size={"icon"}
             onClick={() => {
-              console.log("this was called");
               dispatch(setDecrementLap());
             }}
             disabled={raceData.raceData.currentLap === 0}
