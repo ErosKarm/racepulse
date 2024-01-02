@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Racepulse | F1 Edition Visualizer
 
-## Getting Started
+Racepulse is an unofficial visualizer for Formula 1 races from 1996 onwards. The site provides an engaging experience for F1 enthusiasts, allowing them to explore race data, driver details, and visualizations.
 
-First, run the development server:
+![racepulse](https://github.com/ErosKarm/racepulse/assets/48349453/c8c05f19-82c5-44d8-8ba1-b7244255f884)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Dynamic Race Visualization:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   - Select a year and round to explore races.
+   - Choose a lap or click play to witness the evolution of the gap to the leader over time.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. **Driver Information:**
 
-## Learn More
+   - Two driver selection boxes for in-depth information.
+   - Real-time updates based on lap changes.
+   - Data includes:
+     - Driver position
+     - Driver name
+     - Driver team (constructor)
+     - Driver's current lap time
+     - Gap to the leader
+     - Previous lap time
+     - Gap ahead (to the driver in the forward position)
+     - Constructor (team the driver is driving for)
+     - Starting position
+     - Current position
+     - Gained positions
 
-To learn more about Next.js, take a look at the following resources:
+3. **Data Source:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Utilizes the ERGAST API for race data.
+   - All copyright for the data belongs to ERGAST.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **D3.js Scattergraph:**
+   - Visual representation of all drivers and their gaps on a scattergraph.
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js:**
+  - React framework for building web applications.
+- **ShadCN with Tailwind:**
+  - Styling using ShadCN in conjunction with Tailwind CSS for a responsive and visually appealing design.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Note
+
+- **Mobile Viewing:**
+  - Discouraged: Strange behavior may occur when viewing on mobile devices.
+
+## Developer
+
+- **Eros Karm:**
+  - GitHub: [ErosKarm](https://github.com/ErosKarm)
+
+## Acknowledgments
+
+- **Data Source:**
+  - ERGAST API (All copyrights to ERGAST for the data).
+
+## How to Use
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/ErosKarm/Racepulse-F1-Edition.git
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run application**
+
+   ```bash
+   npm run dev
+   ```
+
+- The application will be accessible at http://localhost:3000.
+
+Feel free to explore, contribute, and provide feedback to enhance the Racepulse | F1 Edition Visualizer!
