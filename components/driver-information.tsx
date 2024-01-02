@@ -50,8 +50,10 @@ const DriverInformation = () => {
         )}
       >
         <div className={cn("grid grid-cols-3 items-center mt-4")}>
-          <span className="text-xs text-muted-foreground">POSITION</span>
-          <span className="text-xs text-muted-foreground col-span-1">
+          <span className="text-[10px] xl:text-xs text-muted-foreground">
+            POSITION
+          </span>
+          <span className="text-[10px] xl:text-xs text-muted-foreground col-span-1">
             DRIVER
           </span>
 
@@ -65,17 +67,19 @@ const DriverInformation = () => {
             )}
           >
             <div className="flex items-center  ">
-              <span className="text-4xl pl-6">
+              <span className="text-3xl xl:text-4xl pl-6">
                 {driverInfo?.isRetired === true ? "R" : driverInfo.position}
               </span>
             </div>
             <div className="flex  flex-col justify-center col-span-2">
-              <span className="text-xl uppercase">{driverInfo?.firstName}</span>
+              <span className="text-base lg:text-lg xl:text-xl uppercase">
+                {driverInfo?.firstName}
+              </span>
               <span
                 style={{
                   color: `${driverInfo.color}`,
                 }}
-                className="text-3xl uppercase text-red-500 font-semibold"
+                className="text-xl lg:text-2xl xl:text-3xl uppercase text-red-500 font-semibold"
               >
                 {driverInfo?.lastName}
               </span>
@@ -88,12 +92,18 @@ const DriverInformation = () => {
 
         <div className="grid grid-cols-2 mt-4">
           <div className="flex flex-col border-r-2">
-            <span className="text-xs text-muted-foreground">LAP TIME</span>
-            <span className="text-3xl font-semibold">{driverInfo.lapTime}</span>
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              LAP TIME
+            </span>
+            <span className="text-xl lg:text-2xl xl:text-3x font-semibold">
+              {driverInfo.lapTime}
+            </span>
           </div>
           <div className="flex flex-col pl-8">
-            <span className="text-xs text-muted-foreground">GAP TO LEADER</span>
-            <span className="text-3xl font-semibold">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              GAP TO LEADER
+            </span>
+            <span className="text-xl lg:text-2xl xl:text-3xl font-semibold">
               {driverInfo.isRetired === true
                 ? "-"
                 : `+${
@@ -107,21 +117,27 @@ const DriverInformation = () => {
         <Separator className="mt-4" />
         <div className="grid grid-cols-3 mt-4">
           <div className="flex flex-col justify-between border-r-2">
-            <span className="text-xs text-muted-foreground">PREVIOUS LAP</span>
-            <span className="text-md ">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              PREVIOUS LAP
+            </span>
+            <span className="text-sm xl:text-md">
               {driverInfo.previousLapTime ? driverInfo.previousLapTime : "-"}
             </span>
           </div>
-          <div className="flex flex-col justify-between pl-8 border-r-2">
-            <span className="text-xs text-muted-foreground">GAP AHEAD</span>
-            <span className="text-md ">
+          <div className="flex flex-col justify-between  xl:justify-start pl-4 xl:pl-8 border-r-2">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              GAP AHEAD
+            </span>
+            <span className="text-sm xl:text-md">
               {driverInfo.gapToAhead === null
                 ? "-"
                 : `+${driverInfo.gapToAhead}s `}
             </span>
           </div>
-          <div className="flex flex-col justify-between pl-8 ">
-            <span className="text-xs text-muted-foreground">CONSTRUCTOR</span>
+          <div className="flex flex-col justify-between  xl:justify-start pl-4 xl:pl-8">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              CONSTRUCTOR
+            </span>
             <span className="text-xs">{driverInfo.driverConstructor}</span>
           </div>
         </div>
@@ -129,18 +145,26 @@ const DriverInformation = () => {
         <Separator className="mt-4" />
         <div className="grid grid-cols-3 mt-4">
           <div className="flex flex-col justify-between border-r-2">
-            <span className="text-xs text-muted-foreground">STARTING POS.</span>
-            <span className="text-md ">P{driverInfo.startingPosition}</span>
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              STARTING POS.
+            </span>
+            <span className="text-sm xl:text-md ">
+              P{driverInfo.startingPosition}
+            </span>
           </div>
-          <div className="flex flex-col justify-between pl-8 border-r-2">
-            <span className="text-xs text-muted-foreground">CURRENT POS.</span>
-            <span className="text-md ">
+          <div className="flex flex-col justify-between border-r-2 xl:justify-start pl-4 xl:pl-8">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              CURRENT POS.
+            </span>
+            <span className="text-sm xl:text-md ">
               {driverInfo.isRetired === true ? "RETIRED" : driverInfo.position}
             </span>
           </div>
-          <div className="flex flex-col justify-between pl-8 ">
-            <span className="text-xs text-muted-foreground">GAINED POS.</span>
-            <span className="text-md flex items-center">
+          <div className="flex flex-col justify-between xl:justify-start pl-4 xl:pl-8">
+            <span className="text-[10px] xl:text-xs text-muted-foreground">
+              GAINED POS.
+            </span>
+            <span className="text-sm xl:text-md flex items-center">
               {Number(driverInfo.gainedPositions) > 0 ? (
                 <>
                   +{driverInfo.gainedPositions}

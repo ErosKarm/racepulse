@@ -29,7 +29,7 @@ const RaceGraph = () => {
         )}
 
       {raceData.raceData.currentLap === raceData.raceData.lapData.length && (
-        <ScrollArea className="w-full h-[250px] px-10 py-4">
+        <ScrollArea className="w-full h-[400px] lg:h-[250px] lg:px-10 py-4 overflow-x-scroll">
           <FinishTable />
         </ScrollArea>
       )}

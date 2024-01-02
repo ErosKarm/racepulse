@@ -22,28 +22,19 @@ const RaceTab = () => {
     }
   }, [countryCode, raceData.circuitInfo.location.country]);
 
-  // if (
-  //   raceData.circuitInfo.location.country !== undefined &&
-  //   countryCode === ""
-  // ) {
-  //   const code = countryFromShortName(raceData.circuitInfo.location.country!);
-
-  //   setCountryCode(code.alpha_2_code);
-  // }
-
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="grid grid-cols-3">
-        <div className="col-span-2 flex  justify-center flex-col">
-          <div className="col-span-3 flex ">
+      <div className="grid grid-cols-4">
+        <div className="col-span-3 flex  justify-center flex-col">
+          <div className="col-span-3 flex items-center gap-x-2 xl:gap-x-0 ">
             <Image
               src={"/f1_logo.png"}
               alt="F1 Logo"
               width={100}
               height={10}
-              className=""
+              className="w-[auto] h-[15px] xl:w-[100px] xl:h-[auto]"
             />
-            <h2 className="text-xl font-[900]">RACE</h2>
+            <h2 className="text-sm xl:text-xl font-[900]">RACE</h2>
           </div>
 
           <div className="flex gap-x-2  mt-3">
@@ -64,7 +55,7 @@ const RaceTab = () => {
               width={5000}
               onError={() => setCountryCode("US")}
               height={5000}
-              className="w-auto h-[50px] object-contain"
+              className="h-[30px] w-auto xl:h-[50px] object-contain"
               alt={`${raceData.circuitInfo.location.country}`}
             />
           )}

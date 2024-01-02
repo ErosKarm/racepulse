@@ -64,6 +64,8 @@ const RaceSelectForm = ({ setOpen }: RaceSelectFormProps) => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      dispatch(setCurrentLap(0));
+
       const lapData = await fetchRaceData(values.year, values.circuit);
 
       dispatch(setLapData(lapData));
@@ -93,8 +95,6 @@ const RaceSelectForm = ({ setOpen }: RaceSelectFormProps) => {
       dispatch(
         setFinishingResult(raceResultData.MRData.RaceTable.Races[0].Results)
       );
-
-      dispatch(setCurrentLap(0));
 
       toast({
         action: (
